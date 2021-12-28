@@ -10,4 +10,4 @@ var t,o=arguments[3];!function(o,i){"function"==typeof t&&t.amd?t([],function(){
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./css/styles.css");var e=t(require("lodash.debounce")),o=require("notiflix/build/notiflix-notify-aio");function t(e){return e&&e.__esModule?e:{default:e}}const n=300,s=document.querySelector("#search-box");function c(e){e.preventDefault();const o=e.target.value.trim();console.log(o),""!==o||console.log("no symbol - clean country list")}function l(e){fetch("https://restcountries.com/v3.1/name/peru").then(e=>e.json()).then(e=>{console.log(e)}).catch(e=>{console.log(e)})}console.log(s),s.addEventListener("input",(0,e.default)(c,300)),l();
 },{"./css/styles.css":"krre","lodash.debounce":"PZFh","notiflix/build/notiflix-notify-aio":"MeeU"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-10/src.9fa97a8f.js.map
+//# sourceMappingURL=/goit-js-hw-10/src.7f4fb5b0.js.map
