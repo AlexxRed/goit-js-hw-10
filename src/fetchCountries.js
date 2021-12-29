@@ -17,19 +17,10 @@ export function fetchCountries(name) {
                     if (countries.length >= 2) {
                         countries.map(
                             (country => {
-                                const contryName = country.name.official;
-                                const flagLink = country.flags.png;
-                        // console.log(contryName);
-                        // console.log(flagLink);
-
-                                const htmlMarkupCountry = `
-                                <li class="country-item">
-                                <img class="country-flag" src="${flagLink}" alt="">
-                                <p class="country-name">${contryName}</p>
-                                </li>
-                                `;
+                            const contryName = country.name.official;
+                            const flagLink = country.flags.png;
                                 
-                        countryInfoRef.innerHTML += htmlMarkupCountry ;
+                    countryInfoRef.innerHTML += htmlMarkupCountry(flagLink, contryName) ;
                     })
                         )
                         
@@ -40,20 +31,8 @@ export function fetchCountries(name) {
                             const population = country.population;
                             const flagLink = country.flags.png;
                             const languages = Object.values(country.languages);
-                        // console.log(contryName);
-                        // console.log(capital);
-                        // console.log(population);
-                        // console.log(flagLink);
-                        // console.log(languages);
-
-                            const htmlMarkupCountries = `
-                        <img class="flag" src="${flagLink}" alt="">
-                        <p class="name"><b>Country:</b> ${contryName}</p>
-                        <p class="capital"><b>Capital:</b> ${capital}</p>
-                        <p class="population"><b>Population:</b> ${population}</p>
-                        <p class="languages"><b>Languages:</b> ${languages}</p>`;
                             
-                        countryListRef.innerHTML = htmlMarkupCountries;
+            countryListRef.innerHTML = htmlMarkupCountries(flagLink, contryName, capital, population, languages );
             }))
                     }
                     
@@ -78,17 +57,26 @@ export function fetchCountries(name) {
 
 
 
-// function htmlMarkupCountries({ flagLink, contryName, capital, population, languages }) {
-//     `
-// <img class="flag" src="${flagLink}" alt="">
-// <p class="name">${contryName}</p>
-// <p class="capital">${capital}</p>
-// <p class="population">${population}</p>
-// <p class="languages">${languages}</p>
-// `;
-// }
+function htmlMarkupCountries(flagLink, contryName, capital, population, languages ) {
+    return `
+<img class="flag" src="${flagLink}" alt="">
+<p class="name">${contryName}</p>
+<p class="capital">${capital}</p>
+<p class="population">${population}</p>
+<p class="languages">${languages}</p>
+`;
+}
 
+function htmlMarkupCountry(flagLink, contryName) {
+    return `
+<li class="country-item">
+<img class="country-flag" src="${flagLink}" alt="">
+<p class="country-name">${contryName}</p>
+</li>
+`;
+}
 
+//{ flagLink, contryName, capital, population, languages }
 
 // const searchParams = 'name,capital,population,flags,languages';
 // `https://restcountries.com/v3.1/name/${name}?fields=${searchParams}`
