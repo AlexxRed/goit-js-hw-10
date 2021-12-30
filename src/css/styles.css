@@ -37,6 +37,7 @@ li {
 
 ul {
   font-size: 26px;
+  font-weight: 500;
 }
 .country-flag {
   display: inline-block;

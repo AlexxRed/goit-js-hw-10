@@ -60,10 +60,10 @@ export function fetchCountries(name) {
 function htmlMarkupCountries(flagLink, countryName, capital, population, languages ) {
     return `
 <img class="flag" src="${flagLink}" alt="">
-<p class="name">${countryName}</p>
-<p class="capital">${capital}</p>
-<p class="population">${population}</p>
-<p class="languages">${languages}</p>
+<p class="name">Country name: ${countryName}</p>
+<p class="capital">Capital: ${capital}</p>
+<p class="population">Population: ${population}</p>
+<p class="languages">Languages: ${languages}</p>
 `;
 }
 
